@@ -1,0 +1,131 @@
+# ==============================================================================
+# NeutralStack Web (.gitignore)
+# Based on project architecture, runtime specifications, and security blueprint
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Security & Certificate Isolation (Mandated by Security Blueprint)
+# Zero-Commit Policy: PKCS#12 bundles, private keys, certificates & environment
+# ------------------------------------------------------------------------------
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+*.csr
+tls.crt
+tls.key
+/tmp/k8s-certs/
+certs/
+
+# Environment configurations and secrets
+.env
+.env.*
+!.env.example
+!.env.test.example
+
+# ------------------------------------------------------------------------------
+# 2. Dependencies & Package Managers
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+jspm_packages/
+.pnp/
+.pnp.js
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------------------------------------------------------
+# 3. Build & Compilation Artifacts (Vite / TypeScript / Rollup)
+# ------------------------------------------------------------------------------
+dist/
+dist-ssr/
+frontend/dist/
+backend/dist/
+build/
+*.tsbuildinfo
+.vite/
+.turbo/
+.cache/
+
+# ------------------------------------------------------------------------------
+# 4. Runtime & Application Logs
+# ------------------------------------------------------------------------------
+logs/
+*.log
+pid
+*.pid
+*.seed
+*.pid.lock
+
+# ------------------------------------------------------------------------------
+# 5. Testing & Code Coverage
+# ------------------------------------------------------------------------------
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+.playwright/
+playwright-report/
+
+# ------------------------------------------------------------------------------
+# 6. Container & Orchestration (Docker / K3s / Local Dev)
+# ------------------------------------------------------------------------------
+docker-compose.override.yml
+*.kubeconfig
+kubeconfig*
+.k3s/
+
+# ------------------------------------------------------------------------------
+# 7. Operating System Artifacts
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
+# Linux
+*~
+.directory
+
+# ------------------------------------------------------------------------------
+# 8. IDEs & Developer Tooling
+# ------------------------------------------------------------------------------
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
+# VS Code (preserve shared configuration templates if desired, ignore local state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/*.log
+
+# Miscellaneous temporary directories
+.temp/
+tmp/
+
